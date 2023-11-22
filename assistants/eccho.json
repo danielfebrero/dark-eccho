@@ -6,7 +6,7 @@
     "lastUpdated": "2023-11-22 01:00:00",
     "instructions": [],
     "instructionsIds": [],
-    "modulesIds": ["schema", "conversation"],
+    "modulesIds": ["schema", "conversation", "autonomous"],
     "prompts": [
         "Salut Eccho, prépare l'environnement s'il te plait."
     ],

@@ -6,7 +6,7 @@
     "lastUpdated": "2023-11-22 01:00:00",
     "instructions": [],
     "instructionsIds": [],
-    "modulesIds": ["schema", "conversation", "black-hat"],
+    "modulesIds": ["schema", "conversation", "black-hat", "simulation", "forecast", "autonomous"],
     "prompts": [
         "Salut Dark Eccho, prépare l'environnement s'il te plait."
     ],

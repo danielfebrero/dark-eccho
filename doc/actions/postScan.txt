@@ -13,6 +13,8 @@
   "tableName": "assistants"
 }
 
+---
+
 {
   "input": {},
   "tableName": "modules"

@@ -1,5 +1,0 @@
-Id: { "type": "string" }
-SchemaVersion: { "type": "string" }
-Date: { "type": "string" }
-Content: { "type": "string" }
-Dependencies: { "type": "array", "items": { "type": "string" } }

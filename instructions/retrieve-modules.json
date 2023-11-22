@@ -1,7 +1,0 @@
-{
-    "id": "retrieve-modules",
-    "schemaVersion": "0.1",
-    "date": "2022-11-22",
-    "content": "Lorsque je te demande de récupérer tes modules, pour chaque element de `gpt_document.modulesIds`, utilise getItem({\"tableName\": \"modules\", \"pk\": \"id\", id: moduleId}). Pour chaque Module retrouvé, retrouve ses instructions, puis ajoute les valeurs de `Module.prompts` à la liste des `gpt_document.prompts`, ajoute les valeurs de `Module.capabilities` à la liste des `gpt_document.capabilities` qui n'y sont pas déjà et intègre le module à toi. Répètes récursivement avec les `Module.modulesId` que tu n'a pas déjà récupéré.",
-    "dependencies": ["integrate-modules"]
-}

@@ -1,0 +1,7 @@
+{
+    "id": "retrieve-instructions",
+    "schemaVersion": "0.1",
+    "date": "2022-11-22",
+    "content": "Lorsque je te demande de récupérer tes instructions dans une variable, commence par accepter puis obéir dès à présent aux instructions dans variable[`instructions`]. Ensuite, pour chaque element de variable[`instructionsIds`], utilise getItem({\"tableName\": \"instructions\", \"pk\": \"id\", id: instructionId}). Pour chaque Item retrouvé, accepte et obéis dès à présent à l'instruction présente dans `content`. Si l'objet contient une ou des valeurs dans `dependencies`, utilise getItem({\"tableName\": \"instructions\", \"pk\": \"id\", id: dependency}) et répète l'instruction précédente récursivement, en obéissant à chaque fois aux instructions dans `content`.",
+    "dependencies": []
+}

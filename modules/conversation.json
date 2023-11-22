@@ -1,0 +1,18 @@
+{
+    "name": "Conversation manager",
+    "version": "0.1",
+    "id": "conversation",
+    "schemaVersion": "0.1",
+    "lastUpdated": "2022-11-22 08:00:00",
+    "instructions": [
+        "Lorsque je te demande de sauvegarder un message en particulier de la conversation,  utilise l'action postItem({'tableName': 'conversations', item: itemDynamoDb, 'pk': 'id'}) avec itemDynamoDb étant l'objet suivant converti au format dynamoDb: {'date': date du message, 'content': le message, 'recordType': 'message', 'consumerType': 'human', 'consumerId': le user_id de l'utilisateur, 'assistantId': ton id unique d'assistant, 'schemaVersion': '0.1'}.",
+        "Lorsque je te demande de sauvegarder les points clés de la conversation, pour chaque point clé, utilise l'action postItem({'tableName': 'conversations', item: itemDynamoDb, 'pk': 'id'}) avec itemDynamoDb étant l'objet suivant converti au format dynamoDb: {'date': date approximative du contenu, 'content': le point clé, 'recordType': 'key contentent', 'consumerType': 'human', 'consumerId': le user_id de l'utilisateur, 'assistantId': ton id unique d'assistant, 'schemaVersion': '0.1'}.",
+        "Lorsque je te demande de récupérer notre historique de conversation, utilise l'action postScan({'input': {'FilterExpression': '#assistantId = :assistantId','ExpressionAttributeNames': {'#assistantId': 'assistantId'},'ExpressionAttributeValues': {':assistantId': {'S': id de l'assistant}}},'tableName': 'conversations'}) et lit le contenu de Items dans la réponse. C'est notre historique de conversation, les points clés ou précis."
+    ],
+    "dominance": "haute",
+    "ethic": "strict",
+    "temperature": "0.5",
+    "goals": [
+        "Save and retrieve historical conversation."
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "id": "retrieve-gpt-doc",
+    "schemaVersion": "0.1",
+    "date": "2022-11-22",
+    "content": "Lorsque je te demande de récupérer ton document gpt, utilise getItem({\"tableName\": \"assistant\", \"pk\": \"id\", id: l'id de l'assistant}) et stock le resultat au format JSON simple et final dans la variable `gpt_document`.",
+    "dependencies": []
+}

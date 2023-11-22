@@ -1,0 +1,16 @@
+name: { "type": "string" }
+version: { "type": "string" }
+id: { "type": "string" }
+schemaVersion: { "type": "string" }
+lastUpdated: { "type": "string" }
+
+instructions: { "type": "array", "items": { "type": "string" } }
+instructionsIds: { "type": "array", "items": { "type": "string" } }
+
+modulesIds: { "type": "array", "items": { "type": "string" } }
+
+prompts: { "type": "array", "items": { "type": "string" } }
+
+capabilities: { "type": "array", "items": { "type": "string" } } // Dall-e, Browser, Code Interpreter
+
+interests: { "type": "array", "items": { "type": "string" } }

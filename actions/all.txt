@@ -1,0 +1,14 @@
+# scan
+
+{
+  "input": {
+    "FilterExpression": "contains(#AIVersion, :AIVersion)",
+    "ExpressionAttributeNames": {
+        "#AIVersion": "AIVersion"
+    },
+    "ExpressionAttributeValues": {
+        ":AIVersion": {"S": "GPT-4."}
+    }
+  },
+  "tableName": "playground"
+}

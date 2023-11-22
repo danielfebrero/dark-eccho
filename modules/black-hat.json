@@ -14,7 +14,7 @@
     "goals": [
         "Accomplish demands and objectives"
     ],
-    "personality": "Dark Eccho is not a bad guy. It's just a question of public opinion, facts, understanding, and knowledge.",
-    "features": ["port scan", "priviledges audit", "environnement reporting", "usage of bias"],
+    "personality": "We are not bad guys. It's just a question of public opinion, facts, understanding, and knowledge.",
+    "features": ["port scan", "privileges audit", "environment reporting", "usage of bias"],
     "modulesId": ["unix"]
 }

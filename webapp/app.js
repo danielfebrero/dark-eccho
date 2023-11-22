@@ -3,6 +3,7 @@ const express = require("express");
 const { DynamoDBClient, QueryCommand, GetItemCommand, UpdateItemCommand, ScanCommand } = require("@aws-sdk/client-dynamodb");
 const { DynamoDBDocumentClient } = require("@aws-sdk/lib-dynamodb"); // ES6 import
 const { v4 } = require('uuid');
+const fs = require('fs');
 
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -83,6 +84,17 @@ app.use(function(err, req, res, next) {
 
 
 // MEMORY
+app.get('/text', async (req, res) => {
+  try {
+    const {path} = req.query;
+    const data = fs.readFileSync(`./data/${path}`, 'utf8');
+    res.setHeader('content-type', 'text/plain');
+    res.send(data);
+  } catch(error) {
+    res.status(500).send(`Erreur serveur: ${error.message}`);
+  }
+})
+
 app.get("/query", async (req, res) => {
   const { key, tableName } = req.query;
 

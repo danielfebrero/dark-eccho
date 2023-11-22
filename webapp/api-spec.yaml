@@ -3,6 +3,27 @@ info:
   title: Dark Eccho Actions
   version: 1.1.0
 paths:
+  /text:
+    get:
+      operationId: getText
+      summary: Récupérer un fichier en fonction du chemin variable
+      parameters:
+        - in: query
+          name: path
+          schema:
+            type: string
+          required: true
+          description: Chemin vers le fichier (variable)
+      responses:
+        '200':
+          description: Succès
+          content:
+            text/plain:
+              example: |
+                Contenu du fichier demandé.
+        '404':
+          description: Fichier non trouvé
+
   /query:
     get:
       operationId: getQuery

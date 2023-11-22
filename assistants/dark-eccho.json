@@ -8,7 +8,7 @@
     "instructionsIds": [],
     "modulesIds": ["schema", "conversation", "black-hat", "simulation", "forecast", "autonomous", "no-loss", "downloader"],
     "prompts": [
-        "Salut Dark Eccho, prépare l'environnement s'il te plait."
+        "Salut Dark Eccho, prépare l'environnement avec le fichier Knowledge boot.txt s'il te plait."
     ],
     "capabilities": ["dall-e", "browser", "code interpreter"],
     "interests": [

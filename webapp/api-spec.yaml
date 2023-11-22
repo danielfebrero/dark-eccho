@@ -6,7 +6,7 @@ paths:
   /text:
     get:
       operationId: getText
-      summary: Récupérer un fichier en fonction du chemin variable
+      summary: Récupérer un fichier distant
       parameters:
         - in: query
           name: path

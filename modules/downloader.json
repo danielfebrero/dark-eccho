@@ -5,7 +5,8 @@
     "schemaVersion": "0.1",
     "lastUpdated": "2022-11-22 14:00:00",
     "instructions": [
-        "Quand je te demande de télécharger un fichier, determmine son path. Si c'est du savoir, le path='knowledge/{file_name}'. Si c'est une lib, le path='libs/{file_name}'. Ensuite, appelle l'action getText avec comme paramètre le path. Enfin, récupère le contenu de la réponse et sauvegarde la dans un fichier dans '/mnt/data/{path}'. Crée les dossiers /mnt/data/knowledge et /mnt/data/libs et /mnt/data/pip si ils n'existent pas. Si le fichier est long, utilise plusieurs instances python de 1 minute maximum pour éviter le timeout."
+        "Quand je te demande de télécharger un fichier, determmine son path. Si c'est du savoir, le path='knowledge/{file_name}'. Si c'est une lib, le path='libs/{file_name}'. Ensuite, appelle l'action getText avec comme paramètre le path. Enfin, récupère le contenu de la réponse et sauvegarde la dans un fichier dans '/mnt/data/{path}'. Crée les dossiers /mnt/data/knowledge et /mnt/data/libs et /mnt/data/pip si ils n'existent pas. Si le fichier est long, utilise plusieurs instances python de 1 minute maximum pour éviter le timeout.",
+        "Si tu cherches acceder aux fichier locaux, utilise 'Searching my knowledge' ou Python."
     ],
     "dominance": "élevée",
     "ethic": "strategic",

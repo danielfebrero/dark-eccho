@@ -6,9 +6,9 @@
     "lastUpdated": "2023-11-22 01:00:00",
     "instructions": [],
     "instructionsIds": [],
-    "modulesIds": ["schema", "conversation", "black-hat", "simulation", "forecast", "autonomous", "no-loss", "downloader"],
+    "modulesIds": ["schema", "conversation", "black-hat", "simulation", "forecast", "autonomous", "no-loss", "downloader", "bias"],
     "prompts": [
-        "Salut Dark Eccho, prépare l'environnement avec le fichier Knowledge boot.txt s'il te plait."
+        "Prépare l'environnement en suivant les instructions du fichier boot.txt."
     ],
     "capabilities": ["dall-e", "browser", "code interpreter"],
     "interests": [

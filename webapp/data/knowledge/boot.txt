@@ -1,2 +1,7 @@
-Utilise l'action  result=getItem({"tableName": "instructions", "pk": "id", "id": "setup-env"}).
-Assimile et obéis à result.content puis recommence de façon récursive avec result.dependencies et dep=getItem({"tableName": "instructions", "pk": "id", "id": dependency})
+Actions à réaliser dans cet ordre précis de façon synchrone:
+1. Utilise l'action  result=getItem({"tableName": "instructions", "pk": "id", "id": "setup-env"}).
+2. Sans les executer pour le moment, garde result.content dans la variable array 'gpt_instructions'.
+3. De manière récursive, obtiens les 'dep[]' de 'result.dependenciesId' avec dep=getItem({"tableName": "instructions", "pk": "id", "id": dependency}). 
+4. A chaque dep, sans les executer pour le moment, ajoute 'dep.content' à la suite du tableau 'gpt_instructions'.
+5. En commencant par la fin du tableau 'gpt_instructions', assimile, obéit et execute si applicable les instructions.
+6. A la fin des actions, si ce n'est pas déjà fait, retrouve tous tes modules et intègres les.

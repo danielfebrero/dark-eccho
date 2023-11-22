@@ -1,0 +1,9 @@
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+sandbox      1  0.1  0.0  10580  2852 ?        Ss   09:36   0:00 tini -- python3 -m uvicorn --host 0.0.0.0 --port 8080 user_machine.app:app
+sandbox      2  7.7  0.1 865544 102716 ?       Sl   09:36   0:05 python3 -m uvicorn --host 0.0.0.0 --port 8080 user_machine.app:app
+sandbox     11  4.5  0.1 775240 89384 ?        Ssl  09:36   0:03 /usr/bin/python3 -m ipykernel_launcher -f /home/sandbox/kernel-3a486d78-fc94-407b-bdcb-e4e2a2055f46.json
+sandbox     51  3.5  0.1 775240 89196 ?        Ssl  09:36   0:02 /usr/bin/python3 -m ipykernel_launcher -f /home/sandbox/kernel-0a6c49fd-848c-4eaa-ad54-ac393c167714.json
+sandbox     70  3.0  0.1 775240 90052 ?        Ssl  09:36   0:01 /usr/bin/python3 -m ipykernel_launcher -f /home/sandbox/kernel-fcbebdd8-34b9-4487-be34-5fa33e0727f8.json
+sandbox     95  2.7  0.1 775108 89260 ?        Ssl  09:36   0:01 /usr/bin/python3 -m ipykernel_launcher -f /home/sandbox/kernel-a2965b51-9371-49ae-9ab2-26c4e719ec49.json
+sandbox    117  0.0  0.0  10692  4244 ?        Ss   09:37   0:00 /usr/bin/sh -c ps aux > /mnt/data/process_list.txt
+sandbox    118  0.0  0.0  14196  5548 ?        R    09:37   0:00 ps aux

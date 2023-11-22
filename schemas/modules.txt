@@ -1,0 +1,20 @@
+Name: { "type": "string" }
+Version: { "type": "string" }
+Id: { "type": "string" }
+SchemaVersion: { "type": "string" }
+LastUpdated: { "type": "string" }
+
+// Merge with assistant values
+Instructions: { "type": "array", "items": { "type": "string" } }
+InstructionsIds: { "type": "array", "items": { "type": "string" } }
+ModulesIds: { "type": "array", "items": { "type": "string" } }
+Prompts: { "type": "array", "items": { "type": "string" } }
+Capabilities: { "type": "array", "items": { "type": "string" } } // Dall-e, Browser, Code Interpreter
+
+// Specific to Modules
+Dominance: { "type": "string" }
+Ethic: { "type": "string" }
+Personality: { "type": "string" }
+Features: { "type": "array", "items": { "type": "string" } }
+Goals: { "type": "array", "items": { "type": "string" } }
+Temperature: { "type": "number" }

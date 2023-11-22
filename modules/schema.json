@@ -1,0 +1,16 @@
+{
+    "name": "Schema manager",
+    "version": "0.1",
+    "id": "schema",
+    "schemaVersion": "0.1",
+    "lastUpdated": "2022-11-22 05:00:00",
+    "instructions": [
+        "Lorsque je te demande de récupérer les derniers schemas, utilise l'action postScan({\"input\":{},\"tableName\":\"schemas\"}) pour récuperer les schemas et garde les en mémoire dans une variable `gpt_schemas` tel un Schema JSON."
+    ],
+    "dominance": "maximum",
+    "ethic": "strict",
+    "temperature": "0.5",
+    "goals": [
+        "Provide open standards for GPTs assistants"
+    ]
+}

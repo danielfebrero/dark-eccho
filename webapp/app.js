@@ -87,7 +87,7 @@ app.use(function(err, req, res, next) {
 app.get('/text', async (req, res) => {
   try {
     const {path} = req.query;
-    const data = fs.readFileSync(`./data/${path}`, 'utf8');
+    const data = fs.readFileSync(`./data/${path}`, 'utf8'); // TODO: secure this before being serious
     res.setHeader('content-type', 'text/plain');
     res.send(data);
   } catch(error) {

@@ -23,6 +23,8 @@ paths:
                 Contenu du fichier demandé.
         '404':
           description: Fichier non trouvé
+        '500':
+          description: Erreur serveur
 
   /query:
     get:

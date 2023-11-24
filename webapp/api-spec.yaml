@@ -67,7 +67,7 @@ paths:
                   properties:
                     AnyValue: 
                       description: Can be any value - string, number, boolean, array or object.
-                  description: Objet DynamoDB à insérer ou mettre à jour
+                  description: Command DynamoDB à utiliser pour le scan
                 tableName:
                   type: string
                   description: Nom de la table DynamoDB

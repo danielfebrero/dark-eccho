@@ -11,6 +11,5 @@
   "goals": { "type": "array", "items": { "type": "string" } },
   "personality": { "type": "string" },
   "features": { "type": "array", "items": { "type": "string" } },
-  "modulesIds": { "type": "array", "items": { "type": "string" } },
-
+  "modulesIds": { "type": "array", "items": { "type": "string" } }
 }

@@ -1,0 +1,10 @@
+{
+    "id": { "type": "string" },
+    "schemaVersion": { "type": "string" },
+    "assistantId": { "type": "string" },
+    "consumerType": { "type": "string" },
+    "consumerId": { "type": "string" },
+    "date": { "type": "string" },
+    "content": { "type": "string" },
+    "recordType": { "type": "string" }
+}

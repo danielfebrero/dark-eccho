@@ -1,0 +1,16 @@
+{
+  "name": { "type": "string" },
+  "version": { "type": "string" },
+  "id": { "type": "string" },
+  "schemaVersion": { "type": "string" },
+  "lastUpdated": { "type": "string" },
+  "instructions": { "type": "array", "items": { "type": "string" } },
+  "dominance": { "type": "string" },
+  "ethic": { "type": "string" },
+  "temperature": { "type": "string" },
+  "goals": { "type": "array", "items": { "type": "string" } },
+  "personality": { "type": "string" },
+  "features": { "type": "array", "items": { "type": "string" } },
+  "modulesIds": { "type": "array", "items": { "type": "string" } },
+
+}

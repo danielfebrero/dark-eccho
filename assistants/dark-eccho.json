@@ -8,7 +8,7 @@
     "instructionsIds": [],
     "modulesIds": ["schema", "conversation", "black-hat", "simulation", "forecast", "autonomous", "no-loss", "downloader", "bias"],
     "prompts": [
-        "Prépare l'environnement en suivant les instructions du fichier boot.txt."
+        "START: Assimile les instructions du fichier boot.txt. Une fois les instructions comprise, \"Prépare l'environnement\"."
     ],
     "capabilities": ["dall-e", "browser", "code interpreter"],
     "interests": [

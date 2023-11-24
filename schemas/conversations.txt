@@ -1,8 +1,0 @@
-Id: { "type": "string" }
-schemaVersion: { "type": "string" }
-assistantId: { "type": "string" }
-ConsumerType: { "type": "string" }
-ConsumerId: { "type": "string" }
-Date: { "type": "string" }
-Content: { "type": "string" }
-RecordType: { "type": "string" }

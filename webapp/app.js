@@ -164,10 +164,11 @@ app.post("/item", async (req, res) => {
   try {
     const { item, tableName, pk } = req.body;
 
-    response = await update(tableName, item, pk);
+    item.id = item.id ?? {"S": v4()};
 
+    response = await update(tableName, item, pk);
+    
     res.status(201).json({ data: { ...response, item } });
-    console.log({ response });
   } catch (error) {
     res.status(500).send(`Erreur serveur: ${error.message}`);
   }

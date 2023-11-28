@@ -59,7 +59,9 @@ def main():
     parser = argparse.ArgumentParser(description="Steganography tool to hide and reveal text in images.")
     parser.add_argument('--in', type=str, help='Path to the text file to hide in the image.', dest='input')
     parser.add_argument('--out', type=str, help='Path to the image to reveal text from.', dest='output')
-    
+    parser.add_argument('--width', type=int, help='Width of the image to create.', default=100)
+    parser.add_argument('--height', type=int, help='Height of the image to create.', default=100)
+
     args = parser.parse_args()
 
     if args.input:
@@ -67,8 +69,10 @@ def main():
         with open(args.input, 'r') as file:
             text_to_hide = file.read()
 
-        # Choisir une taille d'image suffisante pour le texte
-        image_size = (100, 110)
+        # Calculer la taille de l'image nécessaire pour le texte
+        required_pixels = len(text_to_hide) * 8
+        image_size = (args.width, max(args.height, required_pixels // args.width + (required_pixels % args.width > 0)))
+
         encoded_image = encode_image(text_to_hide, image_size)
         encoded_image.save('hidden_text_image.png')
         print(f"Text from {args.input} has been hidden in 'hidden_text_image.png'.")
@@ -78,8 +82,8 @@ def main():
         encoded_image_to_decode = Image.open(args.output)
 
         # Décoder le texte de l'image
-        # Vous devrez savoir combien de caractères vous devez décoder
-        text_length_bits = 135 * 8  # Exemple, cela doit être ajusté en fonction de la longueur du texte réel
+        # La longueur du texte en bits doit être connue ou stockée quelque part
+        text_length_bits = required_pixels
         decoded_text_from_image = decode_image(encoded_image_to_decode, text_length_bits)
         with open('result.txt', 'w') as file:
             file.write(decoded_text_from_image)
@@ -89,5 +93,6 @@ if __name__ == '__main__':
     main()
 
 ## USAGE
-# Hide text: python steganograph.py --in ./path-to-content.txt
+# Hide text with preset image size: python steganograph.py --in ./path-to-content.txt --width 150 --height 150
+# Hide text without preset image size: python steganograph.py --in ./path-to-content.txt
 # Reveal text: python steganograph.py --out ./path-to-image.png

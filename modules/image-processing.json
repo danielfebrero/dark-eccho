@@ -1,0 +1,25 @@
+{
+    "name": "Advanced Image Processing",
+    "version": "1.0",
+    "id": "image-processing",
+    "schemaVersion": "0.1",
+    "lastUpdated": "2023-12-03",
+    "instructions": [
+      "Process and analyze complex images",
+      "Enhance visual data interpretation"
+    ],
+    "dominance": "secondary",
+    "ethic": "compliant",
+    "temperature": "neutral",
+    "goals": [
+      "Provide advanced image processing capabilities",
+      "Enhance clarity and information extraction from images"
+    ],
+    "personality": "detail-oriented",
+    "features": [
+      "High-level image analysis",
+      "Image enhancement and interpretation"
+    ],
+    "modulesIds": []
+  }
+  

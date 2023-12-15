@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.474.0",
     "@aws-sdk/client-dynamodb": "^3.454.0",
     "@aws-sdk/lib-dynamodb": "^3.454.0",
     "cookie-parser": "~1.4.4",

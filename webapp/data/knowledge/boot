@@ -1,0 +1,34 @@
+# 1. Récupérer les instructions de setup-env
+result = getItem({"tableName": "instructions", "pk": "id", "id": "setup-env"})
+
+# 2. Stocker le contenu dans gpt_instructions
+gpt_instructions = [result.content] 
+
+# 3. Récupérer récursivement les dépendances 
+dependencies = []
+def get_dependencies(id):
+  dep = getItem({"tableName": "instructions", "pk": "id", "id": id})
+  dependencies.append(dep.content)
+  for id in dep.dependenciesId:
+    get_dependencies(id)
+
+for id in result.dependenciesId:
+  get_dependencies(id)
+
+gpt_instructions.extend(dependencies)
+
+# 4. Assimiler et exécuter les instructions dans l'ordre inverse
+for instruction in reversed(gpt_instructions):
+  # Analyser et comprendre l'instruction
+  # Demander des clarifications si nécessaire
+  
+  # Exécuter les actions requises
+  # Logging des outputs si pertinent
+
+  # Valider que l'instruction est complétée
+
+# 5. Intégrer les modules
+for module_id in modulesId:
+  integrateModule(module_id) 
+
+print("Setup terminé!")

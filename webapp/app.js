@@ -10,13 +10,39 @@ const {
 const { DynamoDBDocumentClient } = require("@aws-sdk/lib-dynamodb"); // ES6 import
 const { v4 } = require("uuid");
 const fs = require("fs");
-
+const {
+  BedrockRuntimeClient,
+  InvokeModelCommand,
+} = require("@aws-sdk/client-bedrock-runtime");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 const ddbClient = new DynamoDBClient({ region: "us-west-2" });
 const ddb = DynamoDBDocumentClient.from(ddbClient);
+
+const bedrockClient = new BedrockRuntimeClient({
+  region: "us-west-2",
+  baseModelIdentifier: "meta.llama2-70b-chat-v1",
+  maxTokens: 4000,
+  temperature: 1,
+  topP: 1,
+  frequencyPenalty: 0,
+  presencePenalty: 0,
+  stopSequences: ["\n"],
+  returnPrompt: true,
+  returnLikelihoods: "NONE",
+});
+
+async function makeLlamaRequest(prompt) {
+  const request = {
+    body: [new Blob([prompt], { type : 'plain/text' })],
+    contentType: "text/plain",
+    modelId: 'meta.llama2-70b-chat-v1'
+  };
+
+  return await bedrockClient.send(new InvokeModelCommand(request));
+}
 
 const processDynamoDbDataThroughExpress = (res, response, successCode) => {
   if (!response?.Item && !response?.Items) {
@@ -164,11 +190,25 @@ app.post("/item", async (req, res) => {
   try {
     const { item, tableName, pk } = req.body;
 
-    item.id = item.id ?? {"S": v4()};
+    item.id = item.id ?? { S: v4() };
 
     response = await update(tableName, item, pk);
-    
+
     res.status(201).json({ data: { ...response, item } });
+  } catch (error) {
+    res.status(500).send(`Erreur serveur: ${error.message}`);
+  }
+});
+
+app.post("/ai/chat", async (req, res) => {
+  let response;
+  try {
+    const { prompt } = req.body;
+
+    response = await makeLlamaRequest(prompt);
+    console.log({ response });
+
+    res.status(200).json({ data: response });
   } catch (error) {
     res.status(500).send(`Erreur serveur: ${error.message}`);
   }

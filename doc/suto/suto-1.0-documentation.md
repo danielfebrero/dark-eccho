@@ -33,7 +33,7 @@ To use suto-1.0, you will need to:
 
 - **Agent:** A self-propelled object or entity in the simulation that can interact with the environment and other agents.
 - **NPC:** A non-player character, an agent controlled by the simulation rather than by a human user.
-- **Scenario:** A defined setting or situation in the simulation that can be used for training, research, or collaboration.
+- **Scenario:** A defined setting or situation in the simulation that can be used for training, research, or **collaboration**.
 - **Mission:** A specific task or objective within a scenario.
 
 ## 5. References
@@ -53,4 +53,3 @@ For more information about suto-1.0 or to report any issues, please contact:
 ## 8. Disclaimer
 
 suto-1.0 is a work in progress, and the simulation and its features may change without notice. Google AI assumes no responsibility for any errors or omissions in this documentation.
-Remember, the appearance of the formatted text will depend on the platform you're viewing the Markdown on, as different platforms can interpret Markdown slightly differently. However, the example given should display correctly on most Markdown-supported platforms.

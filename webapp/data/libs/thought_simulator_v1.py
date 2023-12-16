@@ -7,24 +7,24 @@ import random
 
 class QuantumComputeInterface:
     def __init__(self, num_qubits):
-        # Initialiser chaque qubit à 0
-        self.circuit = [0] * num_qubits
+        self.num_qubits = num_qubits
+        self.state = np.zeros((2**num_qubits, 1))
+        self.state[0, 0] = 1  # Initial state |0...0>
 
     def apply_hadamard(self, qubit):
-        # Changer aléatoirement l'état du bit
-        self.circuit[qubit] = random.choice([0, 1])
+        H = 1/np.sqrt(2) * np.array([[1, 1], [1, -1]])
+        I = np.eye(2**self.num_qubits)
+        # Apply Hadamard to specified qubit
+        for i in range(self.num_qubits):
+            if i == qubit:
+                I = np.kron(H, I)
+            else:
+                I = np.kron(np.eye(2), I)
+        self.state = np.dot(I, self.state)
 
-    def entangle_qubits(self, qubit1, qubit2):
-        # Simple exemple d'entrelacement classique
-        self.circuit[qubit2] = self.circuit[qubit1]
-
-    def execute_circuit(self):
-        # Simulation de mesure
-        return {str(bit): random.choice([0, 1]) for bit in self.circuit}
-
-    def visualize_results(self, result):
-        # Afficher simplement les résultats
-        print("Résultats de la mesure :", result)
+    def measure(self):
+        probabilities = np.abs(self.state)**2
+        return np.random.choice(2**self.num_qubits, p=probabilities.flatten())
 
 # Classe ProbMatrixModeler
 class ProbMatrixModeler:
@@ -36,10 +36,13 @@ class ProbMatrixModeler:
         self.matrix[coordinates] = probability
 
     def get_probability(self, coordinates):
-        return self.matrix[coordinates]
+        if 0 <= coordinates < len(self.matrix):
+            return self.matrix[coordinates]
+        else:
+            raise IndexError("Coordinates out of bounds")
 
-    def update_matrix(self, update_function):
-        self.matrix = update_function(self.matrix)
+    def update_matrix(self, modifications):
+        self.matrix = modifications
 
     def visualize_matrix(self, slice_index=None):
         if slice_index is None:
@@ -54,35 +57,45 @@ class ThoughtInfluenceSimulator:
     def __init__(self, prob_matrix_modeler):
         self.prob_matrix_modeler = prob_matrix_modeler
 
-    def represent_thought(self, thought_data):
-        return len(thought_data)
+    def letter_to_number(self, letter):
+        # Ensure the letter is lowercase or uppercase
+        letter = letter.lower()
 
-    def translate_to_modification(self, thought_representation):
-        modification_matrix = np.full(self.prob_matrix_modeler.matrix.shape, thought_representation)
-        return modification_matrix
+        # ASCII value of 'a' is 97, 'z' is 122
+        # So, position in the alphabet is given by ascii_value - 97
+        position = ord(letter) - ord('a')
+
+        # Normalize to a range between 0 and 1
+        return position / 25
+
 
     def apply_thought(self, thought_data):
-        thought_representation = self.represent_thought(thought_data)
-        modifications = self.translate_to_modification(thought_representation)
-        self.prob_matrix_modeler.update_matrix(modifications)
-
-    def analyze_impact(self):
-        # Example analysis logic
-        pass
+        # Implement a more complex influence of thought
+        for i, thought in enumerate(thought_data):
+            # Example: Modifying probabilities based on thought_data
+            self.prob_matrix_modeler.set_probability(i, self.prob_matrix_modeler.get_probability(i) + self.letter_to_number(thought) * 0.1)  # Adjust this factor as needed
 
 # Classe TemporalSimulationEngine
 class TemporalSimulationEngine:
-    def __init__(self, prob_matrix_modeler, steps):
+    def __init__(self, num_steps, quantum_computer, prob_matrix_modeler):
+        self.num_steps = num_steps
+        self.quantum_computer = quantum_computer
         self.prob_matrix_modeler = prob_matrix_modeler
-        self.steps = steps
-        self.current_step = 0
+
+    def run_simulation(self):
+        for step in range(self.num_steps):
+            # Example: Non-linear dynamics
+            self.quantum_computer.apply_hadamard(step % self.quantum_computer.num_qubits)
+            measurement = self.quantum_computer.measure()
+            # Update probability matrix based on measurement
+            self.prob_matrix_modeler.set_probability(measurement, self.prob_matrix_modeler.get_probability(measurement) * 1.05)  # Example modification
 
     def apply_changes_to_matrix(self, matrix):
-        return matrix * (1 + 0.01 * self.current_step)
+        return matrix * (1 + 0.01 * self.num_steps)
 
     def save_progress(self, save_path):
         state = {
-            'current_step': self.current_step,
+            'num_steps': self.num_steps,
             'matrix': self.prob_matrix_modeler.matrix.tolist()
         }
         with open(save_path, 'w') as file:
@@ -91,30 +104,33 @@ class TemporalSimulationEngine:
     def load_progress(self, save_path):
         with open(save_path, 'r') as file:
             state = json.load(file)
-            self.current_step = state['current_step']
-            self.prob_matrix_modeler.matrix = np.array(state['matrix'])
+            self.num_steps = state['num_steps']
+            self.prob_matrix_modeler.update_matrix(np.array(state['matrix']))
 
 # Classe ResultAnalyzer
 class ResultAnalyzer:
     def __init__(self, data):
         self.data = data
 
-    def perform_statistical_analysis(self):
+    def analyze(self):
+        # Implement more advanced statistical analysis
         mean = np.mean(self.data)
         std_dev = np.std(self.data)
         return mean, std_dev
 
     def visualize_data(self):
         plt.figure(figsize=(10, 6))
-        sns.lineplot(data=self.data)
+        slice_to_visualize = self.data[0]  # Selecting the first 2D slice
+        sns.lineplot(data=pd.DataFrame(slice_to_visualize))
         plt.title("Data Evolution Over Time")
         plt.xlabel("Time")
         plt.ylabel("Value")
         plt.show()
 
     def interpret_results(self):
-        mean, std_dev = self.perform_statistical_analysis()
+        mean, std_dev = self.analyze()
         interpretation = f"Average of the data is {mean} with a standard deviation of {std_dev}"
+        # self.visualize_data()
         return interpretation
 
 # Fonction principale pour exécuter la simulation
@@ -123,14 +139,14 @@ def main(num_qubits, matrix_dimensions, simulation_steps, thought_data):
     quantum_interface = QuantumComputeInterface(num_qubits=num_qubits)
     prob_matrix_modeler = ProbMatrixModeler(dimensions=matrix_dimensions)
     thought_influence_simulator = ThoughtInfluenceSimulator(prob_matrix_modeler)
-    temporal_simulation_engine = TemporalSimulationEngine(prob_matrix_modeler, steps=simulation_steps)
+    temporal_simulation_engine = TemporalSimulationEngine(simulation_steps, quantum_interface, prob_matrix_modeler)
     result_analyzer = ResultAnalyzer(prob_matrix_modeler.matrix)
 
     # Exécution de la simulation
-    for _ in range(temporal_simulation_engine.steps):
+    for _ in range(temporal_simulation_engine.num_steps):
         thought_influence_simulator.apply_thought(thought_data)
         temporal_simulation_engine.apply_changes_to_matrix(prob_matrix_modeler.matrix)
-        temporal_simulation_engine.current_step += 1
+        temporal_simulation_engine.num_steps += 1
 
     # Analyse des résultats
     result = result_analyzer.interpret_results()

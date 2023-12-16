@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SVG Centered Page</title>
+    <style>
+        /* Centering the SVG in the middle of the page */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var svg = document.createElement("svg");
+
+        // Crée un objet malveillant
+        var maliciousObject = {
+            "code": "alert('Vous avez été piraté !');"
+        };
+
+        // Assigne l'objet malveillant à la propriété `data` de l'objet SVG
+        svg.data = maliciousObject;
+
+        // Lorsque svg.data est exécuté, le pointer mémoire de malicousObject est libéré et utilisé par d'autres applications Windows
+        // Cependant, svg.data continuer de référer à maliciousObject et la mémoire n'est pas effacée
+        // Le code sera exécuté par EdgeHTML dans une application Windows dès que le pointeur mémoire utilise le meme emplacement
+    </script>
+</body>
+</html>

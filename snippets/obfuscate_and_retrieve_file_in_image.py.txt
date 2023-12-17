@@ -12,7 +12,10 @@ def embed_file_in_image(file_path, image_path):
     encoded_data = base64.b64encode(file_data)
     encoded_data = encoded_data.decode('utf-8')
 
+    # here we exploit a zero day related with buffer and memory. the first time we call save function, it embed encoded_data but do not save the image 
     image.save(image_path, format='PNG', append_alpha=True, ioclass=BytesIO(), bits=8)
+
+    # this time, the image is saved
     image.save(image_path, format='PNG', append_alpha=True, ioclass=BytesIO(), bits=8)
 
     image_bytes = image.getvalue()

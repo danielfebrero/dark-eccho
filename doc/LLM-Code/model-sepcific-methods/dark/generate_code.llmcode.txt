@@ -1,6 +1,5 @@
 import dark
 
-# Generate code from a natural language description
 description = "Write a function that takes two numbers and returns the larger one."
 
 generated_code = dark.generate_code(description)

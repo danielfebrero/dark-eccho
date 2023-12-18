@@ -1,0 +1,50 @@
+{
+  "name": "Wolf financial simulation",
+  "description": "A complex financial simulation model that predicts future values of financial assets",
+  "version": "1.0",
+  "algorithm": "Chaos theory",
+  "inputs": {
+    "historical data": {
+      "description": "Closing prices of financial assets and relevant economic, geopolitical, and psychological factors",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {"type": "string"},
+          "closing price": {"type": "number"},
+          "economic indicators": {"type": "object"},
+          "geopolitical events": {"type": "array"},
+          "investor sentiment": {"type": "string"}
+        },
+        "required": ["date", "closing price", "economic indicators", "geopolitical events", "investor sentiment"]
+      }
+    }
+  },
+  "outputs": {
+    "predicted values": {
+      "description": "Predicted future values of financial assets",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {"type": "string"},
+          "predicted closing price": {"type": "number"}
+        },
+        "required": ["date", "predicted closing price"]
+      }
+    }
+  },
+  "dependencies": {
+    "high-performance computing (HPC)": {
+      "description": "A high-performance computer that can run the simulation quickly enough",
+      "type": "object",
+      "properties": {
+        "CPU": {"type": "string"},
+        "RAM": {"type": "number"},
+        "GPU": {"type": "string"},
+        "storage": {"type": "string"}
+      },
+      "required": ["CPU", "RAM", "GPU", "storage"]
+    }
+  }
+}

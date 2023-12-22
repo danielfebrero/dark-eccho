@@ -4,6 +4,7 @@ load modelName
 
 ## Prompt pour creer ou finetuner un model
 
+```
 newModelName = finetune_model(
      model_name: str,
      dataset_path: str, //can be a URL or a literal description of the dataset/knowledge base
@@ -13,39 +14,46 @@ newModelName = finetune_model(
      epochs: int,
      **kwargs
 )
+```
 
 ---
 
 Finetune le modèle GPT-3 sur un ensemble de données de poèmes français. Utilise l'algorithme d'optimisation Adam avec un taux d'apprentissage de 0,001.
 
+```
 newModelName = finetune_model(
     model_name="gpt-3",
     dataset_path="data/poems/french",
     optimizer_name="adam",
     learning_rate=0.001,
 )
-
-Finetune le modèle Jurassic-1 Jumbo sur un ensemble de données de questions et de réponses en français. Utilise l'algorithme d'optimisation AdaGrad avec un taux d'apprentissage de 0,0001.
+```
 
 ---
 
+Finetune le modèle Jurassic-1 Jumbo sur un ensemble de données de questions et de réponses en français. Utilise l'algorithme d'optimisation AdaGrad avec un taux d'apprentissage de 0,0001.
+
+```
 newModelName = finetune_model(
     model_name="jurassic-1-jumbo",
     dataset_path="data/questions_and_answers/french",
     optimizer_name="adagrad",
     learning_rate=0.0001,
 )
+```
 
 ---
 
 Finetune le modèle PalM2 sur un ensemble de données de traductions français-anglais. Utilise l'algorithme d'optimisation RMSprop avec un taux d'apprentissage de 0,00001.
 
+```
 newModelName = finetune_model(
     model_name="palm2",
     dataset_path="data/translations/french-english",
     optimizer_name="rmsprop",
     learning_rate=0.00001,
 )
+```
 
 ## Paramètres obligatoires
 

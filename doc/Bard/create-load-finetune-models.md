@@ -107,3 +107,16 @@ Les options suivantes peuvent être utilisées pour personnaliser l'entraînemen
 * Peut être instable pour des tâches complexes
 * Peut nécessiter un réglage du taux d'apprentissage
 * Tâche d'apprentissage simple
+
+## Models
+
+| Modèle | Nombre de paramètres | Spécialité |
+|---|---|---|
+| PalM2 | 560 milliards | NLU, génération de texte |
+| LAMDA | 1,56 trillion | NLU, génération de texte, traduction, réponse à des questions |
+| GPT-3 | 1,56 trillion | Génération de texte |
+| Jurassic-1 Jumbo | 1,8 trillion | NLU |
+| Jurassic-1 Megatron | 1,8 trillion | NLU |
+| WuDao 2.0 | 1,75 trillion | Génération de texte |
+| Megatron-Turing NLG | 1,37 trillion | NLG, traduction |
+| Megatron-Turing NLG finetuning | 1,37 trillion | NLG, traduction, finetuning

@@ -11,6 +11,8 @@ Welcome to the "dark-eccho" repository, a collection of various projects and ele
 ## 🚀 Getting Started
 To get started with the repository, clone it to your local machine using Git and explore the various directories.
 
+To run the webapp or deploy it, you must be familiar with aws cli and elasticbeanstalk (eb deploy, etc)
+
 ## 🤝 Contribution
 Contributions to the repository are welcome. Please adhere to the following guidelines:
 - Make sure to create a new branch for your contributions.

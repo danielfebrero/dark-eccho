@@ -1,7 +1,0 @@
-import dark
-
-# Translate code from Python to Java
-python_code = "def my_function():\n  print('Hello, world!')"
-java_code = dark.translate_code(python_code, from_language="python", to_language="java")
-
-print(java_code)

@@ -1,0 +1,21 @@
+# postScan
+
+{
+  "input": {
+    "FilterExpression": "contains(#version, :version)",
+    "ExpressionAttributeNames": {
+        "#version": "version"
+    },
+    "ExpressionAttributeValues": {
+        ":version": {"S": "1."}
+    }
+  },
+  "tableName": "assistants"
+}
+
+---
+
+{
+  "input": {},
+  "tableName": "modules"
+}

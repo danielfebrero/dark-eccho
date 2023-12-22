@@ -1,5 +1,0 @@
-# getText
-
-{
-  "path": "libs/lib.py"
-}

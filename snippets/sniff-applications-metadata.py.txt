@@ -1,9 +1,0 @@
-def dir_path = file(buildscript.sourceFile.getAbsolutePath() + "/../../someotherapp").getCanonicalFile().getAbsolutePath()
-def props = new Properties()
-file(dir_path + "/application.properties").withReader { reader ->
-	props.load(reader)
-	project.ext.version = props.getProperty('application.version')
-	project.ext.RELEASE_NAME = props.getProperty('application.release.name')
-	project.ext.GRADLE_MIN = props.getProperty('application.gradle.min')
-	project.ext.GRADLE_MAX = props.getProperty('application.gradle.max')
-}

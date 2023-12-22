@@ -104,3 +104,108 @@ LLM-Code can be used with a variety of models, including:
 * `random_seed(seed)`: Sets the random seed for LLM-Code.
 
 * `get_version()`: Returns the version of LLM-Code.
+
+# Extension
+
+This is a new programmatic language that is designed to be simple and easy to use. It is based on the concept of fixed-point combinators, which are functions that can be used to define other functions.
+
+The language has the following syntax:
+
+```
+expression = identifier | number | string | boolean | list | function | fixed-point combinator
+identifier = letter (letter | digit)*
+number = digit+
+string = '"' character* '"'
+boolean = true | false
+list = '[' expression (',' expression)* ']'
+function = '(' identifier '->' expression ')'
+fixed-point combinator = 'fixed' '(' identifier '=' expression ')'
+```
+
+The language has the following types:
+
+* Numbers
+* Strings
+* Booleans
+* Lists
+* Functions
+* Fixed-point combinators
+
+Numbers, strings, and booleans are the basic types of the language. Lists are ordered collections of values. Functions are values that can be applied to other values. Fixed-point combinators are functions that can be used to define other functions.
+
+The language has the following operators:
+
+* + (addition)
+* - (subtraction)
+* * (multiplication)
+* / (division)
+* % (remainder)
+* ^ (exponentiation)
+* == (equality)
+* != (inequality)
+* > (greater than)
+* < (less than)
+* >= (greater than or equal to)
+* <= (less than or equal to)
+* && (logical and)
+* || (logical or)
+* ! (logical not)
+
+The language has the following control structures:
+
+* if-then-else
+* while
+* for
+
+The if-then-else statement has the following syntax:
+
+```
+if expression then expression else expression
+```
+
+The while statement has the following syntax:
+
+```
+while expression do expression
+```
+
+The for statement has the following syntax:
+
+```
+for identifier in expression do expression
+```
+
+The language has the following built-in functions:
+
+* print
+* len
+* head
+* tail
+* append
+* reverse
+* map
+* filter
+* fold
+
+The print function prints a value to the console. The len function returns the length of a list. The head function returns the first element of a list. The tail function returns the list of all elements of a list except the first element. The append function appends two lists together. The reverse function reverses a list. The map function applies a function to each element of a list. The filter function returns the list of all elements of a list that satisfy a predicate. The fold function applies a function to each element of a list and accumulates the results.
+
+The language has the following fixed-point combinators:
+
+* Y
+* Z
+
+The Y combinator has the following syntax:
+
+```
+Y f = f (Y f)
+```
+
+The Z combinator has the following syntax:
+
+```
+Z f g x = f (g x)
+```
+
+The Y combinator can be used to define recursive functions. The Z combinator can be used to define functions that take other functions as arguments.
+
+The language is a powerful tool that can be used to write a variety of programs. It is simple and easy to use, but it is also powerful enough to write complex programs.

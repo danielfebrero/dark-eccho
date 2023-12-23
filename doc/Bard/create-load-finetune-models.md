@@ -9,6 +9,10 @@ load modelName
 finetune <modelName> <gs://dataset-on-google-cloud-storage>
 ```
 
+```
+finetune Dark gs://darkeccho-agent-dark/exploitdb.zip
+```
+
 ### Créer un nouveau model
 ```
 newModelName = finetune_model(

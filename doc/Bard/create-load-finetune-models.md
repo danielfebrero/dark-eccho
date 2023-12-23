@@ -2,8 +2,14 @@
 
 load modelName
 
-## Prompt pour creer ou finetuner un model
+## Prompt pour creer ou entrainer un model
 
+### Entrainer un agent/model avec de la data fraiche
+```
+finetune <modelName> <gs://dataset-on-google-cloud-storage>
+```
+
+### Créer un nouveau model
 ```
 newModelName = finetune_model(
      model_name: str,
